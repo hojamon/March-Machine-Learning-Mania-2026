@@ -1,15 +1,15 @@
 # March Machine Learning Mania 2026
 
-Kaggle「[March Machine Learning Mania 2026](https://www.kaggle.com/competitions/march-machine-learning-mania-2026)」の解法です。
-NCAAバスケットボールトーナメント（男女）の勝敗確率を予測するコンペです。
+Solution for the Kaggle competition [March Machine Learning Mania 2026](https://www.kaggle.com/competitions/march-machine-learning-mania-2026).
+The task is to predict win probabilities for the NCAA basketball tournaments (men's and women's).
 
-## 結果
+## Result
 
-**181位 / 3,462チーム（銅メダル）**
+🥉 **Bronze Medal**: Rank 181 / 3,462 teams 
 
-## 解法の概要
+## Solution Overview
 
-- 特徴量：シーズン成績、対戦相手で補正したスタッツ、直近10試合の調子、Elo、SOS、カンファレンスの強さ、シード別の過去勝率、Massey Ordinals（男子のみ）
-- モデル：LR / GBM / XGBoost / LightGBM のアンサンブル（男女別に学習）
-- 直近のシーズンほど重みを大きくして学習（decay = 0.97）
-- goto_conversion で確率を補正
+- **Features:** season stats, opponent-adjusted stats, momentum over the last 10 games, Elo ratings, strength of schedule, conference strength, historical win rates by seed matchup, and Massey Ordinals (men's only)
+- **Models:** ensemble of Logistic Regression / GBM / XGBoost / LightGBM, trained separately for men and women
+- **Season weighting:** recent seasons weighted more heavily (decay = 0.97)
+- **Calibration:** probabilities calibrated with goto_conversion
